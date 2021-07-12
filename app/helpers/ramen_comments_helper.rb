@@ -1,0 +1,2 @@
+module RamenCommentsHelper
+end

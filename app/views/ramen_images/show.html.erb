@@ -1,0 +1,56 @@
+<div class="post-body">
+  <!--投稿詳細-->
+  <%= attachment_image_tag @ramen_image, :image %>
+  <p>店舗名：<%= @ramen_image.shop_name %></p>
+  <p>住所：<%= @ramen_image.address %></p>
+  <p>税込価格：<%= @ramen_image.tax_price %></p>
+  <p>スープ：<%= @ramen_image.taste %></p>
+  <p>感想：<%= @ramen_image.caption %></p>
+  <p>ユーザーネーム：<%= @ramen_image.user.username %></p>
+  <p>投稿日時：<%= @ramen_image.created_at.strftime('%Y/%m/%d') %></p>
+  
+  <!--投稿削除-->
+  <% if @ramen_image.user == current_user %>
+    <%= link_to "消去", ramen_image_path(@ramen_image), method: :delete %>
+  <% end %>
+  
+   <!--いいね機能-->
+  <% if @ramen_image.favorited_by?(current_user) %>
+  <p>
+    <%= link_to ramen_image_favorites_path(@ramen_image), method: :delete do %>
+        ♥<%= @ramen_image.favorites.count %> いいね
+    <% end %>
+  </p>
+  <% else %>
+    <p>
+      <%= link_to ramen_image_favorites_path(@ramen_image), method: :post do %>
+        ♡<%= @ramen_image.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+  
+</div>
+
+<div class="comments">
+<p>コメント数：<%= @ramen_image.ramen_comments.count %></p>
+<!--コメント表示-->
+<% @ramen_image.ramen_comments.each do |ramen_comment| %>
+  <p><%= image_tag('no_image.jpg') %></p>
+  <%= ramen_comment.user.username %>
+  <%= ramen_comment.created_at.strftime('%Y/%m/%d') %><%= ramen_comment.comment %>
+  <!--コメント削除  -->
+<% if ramen_comment.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", ramen_image_ramen_comment_path(ramen_comment.ramen_image, ramen_comment), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+</div>
+<!--コメント投稿-->
+<div class="new-comment">
+<%= form_with(model:[@ramen_image, @ramen_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメント" %>
+  <%= f.submit "コメントする" %>
+  
+<% end %>
+</div>

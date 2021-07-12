@@ -22,6 +22,28 @@
       </div>
     <% end %>
     
+   
+    
+    <% if user_signed_in? %>
+         <%= link_to root_path, class: "navbar-item" do %>
+              <h1 class="title is-4" style="font-family: cursive;">麺stagram</h1>
+         <% end %>
+          <li>
+            <%= link_to '投稿フォーム', new_ramen_image_path %> 
+          </li>
+          <li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+          </li>
+    <% else %>
+          <li>
+            <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+          </li>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
+          </li>
+    <% end %>
+    
+    
     <%= yield %>
     
   </body>
