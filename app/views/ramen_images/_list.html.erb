@@ -1,0 +1,16 @@
+<% ramen_images.each do |ramen_image| %>
+<div>
+  <%= link_to ramen_image_path(ramen_image.id) do %>
+  <%= attachment_image_tag ramen_image, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg" %>
+  <% end %>
+  <p><%= attachment_image_tag ramen_image.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+  <p>ユーザーネーム：<%= ramen_image.user.username %></p>
+  <p>店舗名：<%= ramen_image.shop_name %></p>
+  <P>住所 : <%= ramen_image.address %></P>
+  <P>税込価格 : <%= ramen_image.tax_price %></P>
+  <P>スープ : <%= ramen_image.taste %></P>
+  <p>感想：<%= ramen_image.caption %></p>
+  <p><%= link_to "#{ramen_image.ramen_comments.count} コメント", ramen_image_path(ramen_image.id) %></p>
+</div>
+<% end %>
+<%= paginate ramen_images %>

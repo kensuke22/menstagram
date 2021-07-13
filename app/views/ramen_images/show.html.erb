@@ -1,6 +1,6 @@
 <div class="post-body">
   <!--投稿詳細-->
-  <%= attachment_image_tag @ramen_image, :image %>
+  <%= attachment_image_tag @ramen_image, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg" %>
   <p>店舗名：<%= @ramen_image.shop_name %></p>
   <p>住所：<%= @ramen_image.address %></p>
   <p>税込価格：<%= @ramen_image.tax_price %></p>

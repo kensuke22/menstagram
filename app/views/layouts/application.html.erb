@@ -22,29 +22,45 @@
       </div>
     <% end %>
     
-   
-    
-    <% if user_signed_in? %>
-         <%= link_to root_path, class: "navbar-item" do %>
-              <h1 class="title is-4" style="font-family: cursive;">麺stagram</h1>
-         <% end %>
-          <li>
-            <%= link_to '投稿フォーム', new_ramen_image_path %> 
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-          </li>
-          <li>
-            <%= link_to 'マイページ', user_path(current_user.id) %>
-          </li>
-    <% else %>
-          <li>
-            <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
-          </li>
-          <li>
-            <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
-          </li>
-    <% end %>
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand p-2">
+        <%= link_to root_path, class: 'nav-link text-dark' do %>
+            <h1 class="title is-4" style="font-family: cursive;">麺stagram</h1>
+        <% end %>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to '投稿フォーム', new_ramen_image_path, class: 'nav-link text-dark' %> 
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'ラーメン一覧', ramen_images_path, class: 'nav-link text-dark' %>
+                </li>
+          <% else %>
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+                </li>
+          <% end %>
+          </ul>
+        </div>
+    </div>
+  </nav>
+</header>
     
     
     <%= yield %>
