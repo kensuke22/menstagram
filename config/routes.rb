@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'favorites/create'
-  get 'favorites/destroy'
   devise_for :users
   root to: "home#top"
   resources :ramen_images, only: [:new, :create, :index, :show, :destroy] do
@@ -9,5 +6,6 @@ Rails.application.routes.draw do
     resources :ramen_comments, only: [:create, :destroy]
     
   end
+  resources :users, only: [:show, :edit, :update]
   
 end

@@ -35,7 +35,7 @@
 <p>コメント数：<%= @ramen_image.ramen_comments.count %></p>
 <!--コメント表示-->
 <% @ramen_image.ramen_comments.each do |ramen_comment| %>
-  <p><%= image_tag('no_image.jpg') %></p>
+  <%= attachment_image_tag ramen_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
   <%= ramen_comment.user.username %>
   <%= ramen_comment.created_at.strftime('%Y/%m/%d') %><%= ramen_comment.comment %>
   <!--コメント削除  -->

@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  has_many :ramen_imeges, dependent: :destroy
+  has_many :ramen_images, dependent: :destroy
   has_many :ramen_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  attachment :profile_image
   
 end
