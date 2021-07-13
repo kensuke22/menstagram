@@ -1,5 +1,13 @@
 <h1>投稿フォーム</h1>
 
+<% if @ramen_image.errors.any? %>
+  <%= @ramen_image.errors.count %>件のエラーが発生しました
+  <p><% @ramen_image.errors.full_messages.each do |message| %></p>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
 <%= form_with model: @ramen_image, local:true do |f| %>
   <h4>ラーメン写真</h4>
   <%= f.attachment_field :image %>

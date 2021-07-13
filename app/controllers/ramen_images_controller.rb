@@ -3,12 +3,15 @@ class RamenImagesController < ApplicationController
   def new
     @ramen_image = RamenImage.new
   end
-    #投稿データ保存
+    #投稿データ保存とバリデーション
   def create
     @ramen_image = RamenImage.new(ramen_image_params)
     @ramen_image.user_id = current_user.id
-    @ramen_image.save
-    redirect_to ramen_images_path
+    if @ramen_image.save
+      redirect_to ramen_images_path
+    else
+      render :new
+    end
   end
 
   def index
