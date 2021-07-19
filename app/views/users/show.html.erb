@@ -5,7 +5,43 @@
   <% if @user.id == current_user.id %>
     <p><%= link_to "編集", edit_user_path(@user) %></p>
   <% end %>
-
+  
+  <p><%= "フォロー中 #{@user.follower.count}名" %></p>
+  <% @user.following_user.where.not(id: current_user.id).each do |user| %>
+    <p>
+      <%= user.username %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <% end %>
+      <%= link_to "show", user_path(user) %>
+    </p>
+  <% end %>
+  
+  <p><%= "フォロワー #{@user.followed.count}名" %></p>
+  <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
+    <p>
+      <%= user.username %>
+      <% if current_user.following?(user) %>
+        <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+      <% else %>
+        <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+      <% end %>
+      <%= link_to "show", user_path(user) %>
+    </p>
+  <% end %>
+  
+  
+  <% unless @user == current_user %>
+    <% if current_user.following?(@user) %>
+      <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+    <% else %>
+      <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+    <% end %>
+  <% end %>
+  
+  
 </div>
 
 <%= render 'ramen_images/list', ramen_images: @ramen_images %>
