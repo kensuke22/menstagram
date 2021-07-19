@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update, :index]
   
+  get 'search/search' => 'search#search'
+  
 end

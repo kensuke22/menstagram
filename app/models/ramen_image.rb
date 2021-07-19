@@ -16,4 +16,17 @@ class RamenImage < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
   
+  def self.search(search, word)
+        if search == "forward_match"
+                        @ramen_image = RamenImage.where("taste LIKE?","#{word}%")
+        elsif search == "backward_match"
+                        @ramen_image = RamenImage.where("taste LIKE?","%#{word}")
+        elsif search == "perfect_match"
+                        @ramen_image = RamenImage.where("taste LIKE?","%#{word}%")
+        elsif search == "partial_match"
+                        @ramen_image = RamenImage.where("taste LIKE?","%#{word}%")
+        else
+                        @ramen_image = RamenImage.all
+        end
+  end
 end

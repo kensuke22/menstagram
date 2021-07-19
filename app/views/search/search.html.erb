@@ -1,0 +1,57 @@
+<table class="table table-hover table-inverse">
+<% if @range == 2 %>
+<thead>
+    <tr>
+     <th></th>
+     <th>スープ</th>
+     <th>評価</th>
+     <th>店舗名</th>
+     <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @ramen_image.each do |ramen_image| %>
+     <tr>
+      <td>
+        <%= link_to ramen_image_path(ramen_image.id) do %>
+            <%= attachment_image_tag ramen_image, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+        <% end %>
+      </td>
+      <td><%= ramen_image.taste %></td>
+      <td class="ramen_image-evaluation" data-score="<%= ramen_image.evaluation %>"></td>
+      <td><%= ramen_image.shop_name %></td>
+     </tr>
+     <% end %>
+     <script>
+      $('.ramen_image-evaluation').raty({
+        readOnly: true,
+        score: function() {
+          return $(this).attr('data-score');
+        },
+        path: '/assets/'
+      });
+     </script>
+  </tbody>
+  <% elsif @range == 1 %>
+  <thead>
+     <tr>
+      <th></th>
+      <th>name</th>
+      <th colspan="3"></th>
+     </tr>
+   </thead>
+
+   <tbody>
+    <% @user.each do |user| %>
+     <tr>
+      <td>
+        <%= link_to user_path(user.id) do %>
+            <%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+        <% end %>
+      </td>
+      <td><%= user.username%></td>
+     </tr>
+    <% end %>
+   </tbody>
+   <% end %>
+ </table>
