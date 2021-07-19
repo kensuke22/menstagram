@@ -16,9 +16,20 @@
           <P>税込価格 : <%= ramen_image.tax_price %></P>
           <P>スープ : <%= ramen_image.taste %></P>
           <p>感想：<%= ramen_image.caption %></p>
+          <p>評価：</p>
+            <div class="ramen_image-evaluation" data-score="<%= ramen_image.evaluation %>"></div>
           <p><%= link_to "#{ramen_image.ramen_comments.count} コメント", ramen_image_path(ramen_image.id) %></p>
         </div>
       </div>  
   </div>
 <% end %>
+<script>
+  $('.ramen_image-evaluation').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
 <%= paginate ramen_images %>

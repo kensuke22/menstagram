@@ -32,7 +32,7 @@ class RamenImagesController < ApplicationController
   private
   
   def ramen_image_params
-    params.require(:ramen_image).permit(:shop_name, :image, :caption, :address, :taste, :tax_price)
+    params.require(:ramen_image).permit(:shop_name, :image, :caption, :address, :taste, :tax_price, :evaluation)
   end
 
 end
