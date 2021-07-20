@@ -1,0 +1,13 @@
+<!--コメント表示-->
+<% ramen_image.ramen_comments.each do |ramen_comment| %>
+  <%= attachment_image_tag ramen_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <%= ramen_comment.user.username %>
+  <%= ramen_comment.created_at.strftime('%Y/%m/%d') %><%= ramen_comment.comment %>
+  
+   <!--コメント削除  -->
+<% if ramen_comment.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", ramen_image_ramen_comment_path(ramen_comment.ramen_image, ramen_comment), method: :delete, remote: true %>
+  </div>
+  <% end %>
+<% end %>

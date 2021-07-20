@@ -18,7 +18,7 @@
     },
     path: '/assets/'
   });
-</script>
+  </script>
   
   
   <!--投稿削除-->
@@ -26,33 +26,20 @@
     <%= link_to "消去", ramen_image_path(@ramen_image), method: :delete %>
   <% end %>
   
-  <tr class="ramen_image_<%= @ramen_image.id %>">
+  <div id="ramen_image_<%= @ramen_image.id %>">
   <!--いいね機能-->
   <%= render 'favorites/favorite', ramen_image: @ramen_image %>
-  </tr>
+  </div>
   
 </div>
 
-<div class="comments">
+
 <p>コメント数：<%= @ramen_image.ramen_comments.count %></p>
-<!--コメント表示-->
-<% @ramen_image.ramen_comments.each do |ramen_comment| %>
-  <%= attachment_image_tag ramen_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <%= ramen_comment.user.username %>
-  <%= ramen_comment.created_at.strftime('%Y/%m/%d') %><%= ramen_comment.comment %>
-  <!--コメント削除  -->
-<% if ramen_comment.user == current_user %>
-  <div class="comment-delete">
-    <%= link_to "削除", ramen_image_ramen_comment_path(ramen_comment.ramen_image, ramen_comment), method: :delete %>
-  </div>
-  <% end %>
-<% end %>
+
+<div id = "comments">
+<%= render 'ramen_comments/index', ramen_image: @ramen_image %>
 </div>
 <!--コメント投稿-->
 <div class="new-comment">
-<%= form_with model:[@ramen_image, @ramen_comment] do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメント" %>
-  <%= f.submit "コメントする" %>
-  
-<% end %>
+<%= render 'ramen_comments/form', ramen_image: @ramen_image %>
 </div>
