@@ -1,0 +1,14 @@
+ <!--いいね機能-->
+  <% if ramen_image.favorited_by?(current_user) %>
+    <p>
+      <%= link_to ramen_image_favorites_path(ramen_image), remote: true, method: :delete do %>
+          ♥<%= ramen_image.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to ramen_image_favorites_path(ramen_image), remote: true, method: :post do %>
+        ♡<%= ramen_image.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>

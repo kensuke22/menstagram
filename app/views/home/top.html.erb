@@ -1,16 +1,7 @@
-<div class="container">
-    <div class="row">
-        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-          <div class="btn-wrapper col-10 mx-auto">
-            <div class="row">
-                <%= link_to "Log in", new_user_session_path, class:"btn btn-info btn-sm btn-block mb-3 sign_in" %>
-            </div>
-            <div class="row">
-                <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-success btn-sm btn-block sign_up" %>
-            </div>
-          </div>
-        </div>
+<div class="jumbotron jumbotron-extend">
+    <div class="container-fluid jumbotron-container">
+        <h1 class="site-name">思い出の一杯をいっぱいに。。</h1>
+       <%= link_to "Log in", new_user_session_path, class:"btn btn-dark" %>
+       <%= link_to "Sign Up", new_user_registration_path,class:"btn btn-dark" %>
     </div>
 </div>
-
-

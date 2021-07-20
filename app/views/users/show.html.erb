@@ -7,6 +7,7 @@
   <% end %>
   
   <p><%= "フォロー中 #{@user.follower.count}名" %></p>
+  <!--フォロー一覧表示-->
   <% @user.following_user.where.not(id: current_user.id).each do |user| %>
     <p>
       <%= user.username %>
@@ -20,6 +21,7 @@
   <% end %>
   
   <p><%= "フォロワー #{@user.followed.count}名" %></p>
+  <!--フォロワー一覧表示-->
   <% @user.follower_user.where.not(id: current_user.id).each do |user| %>
     <p>
       <%= user.username %>
