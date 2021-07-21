@@ -36,6 +36,7 @@
 
 <p>コメント数：<%= @ramen_image.ramen_comments.count %></p>
 
+<!--コメント一覧-->
 <div id = "comments">
 <%= render 'ramen_comments/index', ramen_image: @ramen_image %>
 </div>
@@ -43,3 +44,6 @@
 <div class="new-comment">
 <%= render 'ramen_comments/form', ramen_image: @ramen_image %>
 </div>
+
+<!--マップ表示-->
+<%= render 'ramen_images/gmap', ramen_image: @ramen_image %>
