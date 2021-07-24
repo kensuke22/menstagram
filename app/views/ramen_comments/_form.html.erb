@@ -1,5 +1,8 @@
-<%= form_with model:[@ramen_image, @ramen_comment] do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメント" %>
-  <%= f.submit "コメント" %>
-  
-<% end %>
+<div>
+  <%= form_with model:[@ramen_image, @ramen_comment] do |f| %>
+   
+    <%= f.text_area :comment, rows:'3',placeholder: "コメント" %><br/>
+    <%= f.submit "コメントを追加", class: "btn btn-secondary" %>
+  <% end %>
+  <br/>
+</div>

@@ -21,6 +21,7 @@ class RamenImagesController < ApplicationController
   def show
     @ramen_image = RamenImage.find(params[:id])
     @ramen_comment = RamenComment.new
+    @user = @ramen_image.user
   end
 
   def destroy

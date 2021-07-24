@@ -1,37 +1,45 @@
-<h1>投稿フォーム</h1>
-
-<% if @ramen_image.errors.any? %>
-  <%= @ramen_image.errors.count %>件のエラーが発生しました
-  <p><% @ramen_image.errors.full_messages.each do |message| %></p>
-    <%= message %>
-  <% end %>
-<% end %>
-
-
-<%= form_with model: @ramen_image, local:true do |f| %>
-  <h4>ラーメン写真</h4>
-  <%= f.attachment_field :image %>
-  <h4>店舗名</h4>
-  <%= f.text_field :shop_name %>
-  <h4>住所</h4>
-  <%= f.text_field :address %>
-  <h4>税込価格</h4>
-  <%= f.text_field :tax_price %>
-  <h4>スープ</h4>
-  <%= f.text_field :taste %>
-  <h4>感想</h4>
-  <%= f.text_area :caption %>
-  <div id="evaluate_stars">
-    <label>評価</label>
+<div class="container my-5">
+  <div class="row">
+    <div class='px-3 mx-auto'>
+      <div class="card post">
+        <h1><i class="fas fa-camera-retro"></i></h1>
+        
+        
+        <% if @ramen_image.errors.any? %>
+          <%= @ramen_image.errors.count %>件のエラーが発生しました
+          <p><% @ramen_image.errors.full_messages.each do |message| %></p>
+            <%= message %>
+          <% end %>
+        <% end %>
+        
+        
+        <%= form_with model: @ramen_image, local:true do |f| %>
+          <%= f.attachment_field :image %>
+          <h4>店舗名</h4>
+          <%= f.text_field :shop_name %>
+          <h4>住所</h4>
+          <%= f.text_field :address %>
+          <h4>税込価格</h4>
+          <%= f.text_field :tax_price %>
+          <h4>スープ</h4>
+          <%= f.text_field :taste %>
+          <h4>感想</h4>
+          <%= f.text_area :caption %>
+          <div id="evaluate_stars">
+            <label>評価</label>
+          </div>
+          <%= f.submit '投稿', class:"btn btn-outline-secondary" %>
+        <% end %>
+        
+        <script>
+          $('#evaluate_stars').raty({
+            starOn: "<%= asset_path('star-on.png') %>",
+            starOff: "<%= asset_path('star-off.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            scoreName: 'ramen_image[evaluation]' //登録するモデル名とカラム名を記述
+          });
+        </script>
+      </div>
+    </div>
   </div>
-  <%= f.submit '投稿' %>
-<% end %>
-
-<script>
-  $('#evaluate_stars').raty({
-    starOn: "<%= asset_path('star-on.png') %>",
-    starOff: "<%= asset_path('star-off.png') %>",
-    starHalf: "<%= asset_path('star-half.png') %>",
-    scoreName: 'ramen_image[evaluation]' //登録するモデル名とカラム名を記述
-  });
-</script>
+</div>

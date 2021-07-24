@@ -31,7 +31,7 @@ end
   
   
   
-  def self.search(search,word)　#検索機能
+  def self.search(search,word)#検索機能
           if search == "forward_match"
                           @user = User.where("username LIKE?","#{word}%")
           elsif search == "backward_match"
