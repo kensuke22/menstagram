@@ -39,9 +39,10 @@
                   <%= link_to ramen_image_path(@ramen_image), method: :delete do %>
                   <button type="button" class="btn btn-outline-secondary">投稿削除</button>
                   </h4>
-              <% end %>
+                <% end %>
+              <% end %> 
                 
-            </div>  
+            </div>
           </div>
             
           <div class="col-md-4 comment">
@@ -55,7 +56,6 @@
               <%= render 'ramen_comments/form', ramen_image: @ramen_image %>
               </div>
                
-              <% end %>
           </div>
         </div>
       </div>
