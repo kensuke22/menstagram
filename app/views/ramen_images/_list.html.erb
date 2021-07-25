@@ -1,33 +1,33 @@
 <div class="card-list-containar">
-<% ramen_images.each do |ramen_image| %>
-<div class="card w-50 mx-auto mt-4 shadow-lg">
-  <p>
-    <%= attachment_image_tag ramen_image.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-    <%= ramen_image.user.username %>
-  </p>
-  <div class="image">
-    <%= link_to ramen_image_path(ramen_image.id) do %>
-    <%= attachment_image_tag ramen_image, :image, :fill, 720, 720, format: 'jpeg', fallback: "no_image.jpg" %>
-    <% end %>
-  </div>
-  <div class="card-body">
-      <div class="row">
-        <div class="col-6">
-         店舗名
-          <p><i class="fas fa-arrow-alt-circle-right fa-lg"></i> <%= ramen_image.shop_name %></p>
-         税込価格  
-          <p><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= ramen_image.tax_price %>円</p>
-        </div>
-        <div class="col-6">
-          スープ
-          <P><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= ramen_image.taste %></P>
-          評価
-           <div class="ramen_image-evaluation" data-score="<%= ramen_image.evaluation %>"></div>
-          
+  <% ramen_images.each do |ramen_image| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <h4>
+      <%= attachment_image_tag ramen_image.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+      <%= ramen_image.user.username %>
+    </h4>
+    <div class="image">
+      <%= link_to ramen_image_path(ramen_image.id) do %>
+      <%= attachment_image_tag ramen_image, :image, :fill, 720, 720, format: 'jpeg', fallback: "no_image.jpg" %>
+      <% end %>
+    </div>
+    <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+           店舗名
+            <p><i class="fas fa-arrow-alt-circle-right fa-lg"></i> <%= ramen_image.shop_name %></p>
+           税込価格  
+            <p><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= ramen_image.tax_price %>円</p>
+          </div>
+          <div class="col-6">
+            スープ
+            <P><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= ramen_image.taste %></P>
+            評価
+             <div class="ramen_image-evaluation" data-score="<%= ramen_image.evaluation %>"></div>
+            
         </div>
     </div>
   </div>  
-  </div>
+</div>
 <% end %>
 <script>
   $('.ramen_image-evaluation').raty({

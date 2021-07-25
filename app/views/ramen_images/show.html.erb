@@ -1,16 +1,18 @@
 <div class="card mb-3" style="max-width: 1600px">
   <div class="row no-gutters">
           <div class="col-md-5 my-auto">
-  <!--投稿詳細-->
+            <!--投稿詳細-->
             <%= link_to user_path (@user) do %>
-            <div>
+            <div class="image">
             </div>
             <%= attachment_image_tag @ramen_image, :image, :fill, 500, 500, format: 'jpeg', fallback: "no_image.jpg" %>
             <% end %>
             <div><%= @ramen_image.created_at.strftime('%Y/%m/%d') %></div>
           </div>
           
+          
           <div class="col-md-3">
+            <h3>ラーメン情報</h3>
             <div>
                 <p>店舗名<br/><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= @ramen_image.shop_name %></p>
                 <p>住所<br/><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= @ramen_image.address %></p>
@@ -48,6 +50,7 @@
           </div>
             
           <div class="col-md-4 comment">
+            <h3>麺バーのコメント</h3>
               <!--コメント一覧-->
               <div id = "comments">
               <%= render 'ramen_comments/index', ramen_image: @ramen_image %>

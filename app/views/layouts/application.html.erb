@@ -64,7 +64,7 @@
           </ul>
             <% if user_signed_in? %>
                     <%= form_tag(search_search_path, method: :get) do %>
-                    <%= select_tag 'range' ,options_for_select([['ラーメン', '2'], ['麺バー', '1']]) %>
+                    <%= select_tag 'range' ,options_for_select([['スープ', '2'], ['麺バー', '1']]) %>
                     <%= select_tag 'search', options_for_select([["前方一致","forward_match"], ["後方一致","backward_match"], ["部分一致","partial_match"], ["完全一致","perfect_match"]]) %>
                     <%= text_field_tag (:word) %>
                     <%= submit_tag "🔍" %>
