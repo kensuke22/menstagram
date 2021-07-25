@@ -1,9 +1,9 @@
 <div class="card mb-3" style="max-width: 1600px">
   <div class="row no-gutters">
-          <div class="col-md-2">
+          <div class="col-md-2 image">
             <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg" %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 image">
             <label>ユーザーネーム</label>
             <br/><h4><%= @user.username %></h4><br/>
             <label>プロフィール</label>
@@ -27,7 +27,7 @@
               </p>
              <% end %>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 image">
             <p><h4><%= "フォロー #{@user.follower.count}名" %></h4></p>
             <!--フォロー一覧表示-->
               <% @user.following_user.where.not(id: current_user.id).each do |user| %>
@@ -51,7 +51,7 @@
               <% end %>
           </div>
           
-          <div class="col-md-3">
+          <div class="col-md-3 image">
              <p><h4><%= "フォロワー #{@user.followed.count}名" %></h4></p>
               <!--フォロワー一覧表示-->
               <% @user.follower_user.where.not(id: current_user.id).each do |user| %>

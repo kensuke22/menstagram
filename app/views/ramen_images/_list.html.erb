@@ -1,12 +1,13 @@
 <div class="card-list-containar">
 <% ramen_images.each do |ramen_image| %>
 <div class="card w-50 mx-auto mt-4 shadow-lg">
-  <p><%= attachment_image_tag ramen_image.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
-         <%= ramen_image.user.username %>
+  <p>
+    <%= attachment_image_tag ramen_image.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+    <%= ramen_image.user.username %>
   </p>
   <div class="image">
     <%= link_to ramen_image_path(ramen_image.id) do %>
-    <%= attachment_image_tag ramen_image, :image, :fill, 600, 600, format: 'jpeg', fallback: "no_image.jpg" %>
+    <%= attachment_image_tag ramen_image, :image, :fill, 720, 720, format: 'jpeg', fallback: "no_image.jpg" %>
     <% end %>
   </div>
   <div class="card-body">

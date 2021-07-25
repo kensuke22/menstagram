@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .image{
    text-align: center;
+   display: block;
+   height: auto;
+   max-width: 100%;
 }
 
 .card-body{
