@@ -6,7 +6,7 @@
   </p>
   <div class="image">
     <%= link_to ramen_image_path(ramen_image.id) do %>
-    <%= attachment_image_tag ramen_image, :image, :fill, 600, 600, fallback: "no_image.jpg" %>
+    <%= attachment_image_tag ramen_image, :image, :fill, 600, 600, format: 'jpeg', fallback: "no_image.jpg" %>
     <% end %>
   </div>
   <div class="card-body">
@@ -37,7 +37,6 @@
     starOn: "<%= asset_path('star-on.png') %>",
     starOff: "<%= asset_path('star-off.png') %>",
     starHalf: "<%= asset_path('star-half.png') %>",
-    // path: "<%#= asset_path('/assets/') %>"
   });
 </script>
 <br/>
