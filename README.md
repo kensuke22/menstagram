@@ -1,24 +1,29 @@
-# README
+# 麺stagram
+感動の一杯をいっぱいに。。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
+ラーメン好きが集まるコミュニティサイトです。
+自分の食べたラーメンを写真・ジャンル・レビュー・5段階評価とともに、食事録として残していくことができます。
+お気に入り機能やレビュー機能により、他の人が食べたラーメンの詳細を知ることができます。
 
-Things you may want to cover:
+# 機能
+・ユーザー認証(devise)
+・検索機能(データベース)
+・コメント機能
+・星レビュー評価
+・いいね機能の非同期通信(Ajax)
+・フォロー機能の非同期通信(Ajax)
+・画像アップロード機能(Refile)
+・Google Mapによる位置情報
+・AI機能 
 
-* Ruby version
+# 使い方
+新規登録を行い自分のアカウントを作成し使用できます。
 
-* System dependencies
+# バージョン
 
-* Configuration
+- Rails 5.2.6
+- Ruby 2.6.3
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 作者
+原 謙介
