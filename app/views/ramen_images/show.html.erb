@@ -20,7 +20,7 @@
                 <p>スープ<br/><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= @ramen_image.taste %></p>
                 <p>感想<br/><i class="fas fa-arrow-alt-circle-right fa-lg"></i><%= @ramen_image.caption %></p>
                 <p>
-                  <h4>ポジティブ指数　<%= @ramen_image.score * 100 %>点</h4>※AIの感情分析を用いて投稿された感想が<br/>ポジティブな内容かネガティブな内容かを<br/>判断しています。
+                <h4>ポジティブ指数　<%= @ramen_image.score * 100 %>点</h4>※AIの感情分析を用いて投稿された感想が<br/>ポジティブな内容かネガティブな内容かを<br/>判断しています。
                 </p>
                 <div>評価</div>
                   <div class="ramen_image-evaluation" data-score="<%= @ramen_image.evaluation %>"></div>
