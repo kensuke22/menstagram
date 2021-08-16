@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_19_092409) do
+ActiveRecord::Schema.define(version: 2021_08_13_074547) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_07_19_092409) do
     t.string "address"
     t.integer "tax_price"
     t.float "evaluation"
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "relationships", force: :cascade do |t|

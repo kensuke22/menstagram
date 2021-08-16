@@ -7,6 +7,7 @@ class RamenImagesController < ApplicationController
   def create
     @ramen_image = RamenImage.new(ramen_image_params)
     @ramen_image.user_id = current_user.id
+    @ramen_image.score = Language.get_data(ramen_image_params[:caption])
     if @ramen_image.save
       redirect_to ramen_images_path
     else
