@@ -7,15 +7,7 @@
 お気に入り機能やレビュー機能により、他の人が食べたラーメンの詳細を知ることができます。
 
 # 機能
-* ユーザー認証(devise)
-* 検索機能(データベース)
-* コメント機能
-* 星レビュー評価
-* いいね機能の非同期通信(Ajax)
-* フォロー機能の非同期通信(Ajax)
-* 画像アップロード機能(Refile)
-* Google Mapによる位置情報
-* AI機能 
+https://docs.google.com/spreadsheets/d/10ET5WNdCRBYi7-bfcMKWIvMmledgXNlnyZTXcXtXVXE/edit?usp=sharing
 
 # 使い方
 新規登録を行い自分のアカウントを作成し使用できます。
