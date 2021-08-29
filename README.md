@@ -6,7 +6,7 @@
 自分の食べたラーメンを写真・ジャンル・レビュー・5段階評価とともに、食事録として残していくことができます。
 お気に入り機能やレビュー機能により、他の人が食べたラーメンの詳細を知ることができます。
 
-# 機能
+# チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/10ET5WNdCRBYi7-bfcMKWIvMmledgXNlnyZTXcXtXVXE/edit?usp=sharing
 
 # 使い方
