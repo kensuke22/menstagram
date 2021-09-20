@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  
+  post '/home/guest_sign_in', to: 'home#guest_sign_in'
+  
 end
