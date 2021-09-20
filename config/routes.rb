@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+ 
   devise_for :users
+  
   root to: "home#top"
   resources :ramen_images, only: [:new, :create, :index, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
@@ -14,5 +16,7 @@ Rails.application.routes.draw do
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   
   post '/home/guest_sign_in', to: 'home#guest_sign_in'
+  
+  
   
 end
