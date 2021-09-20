@@ -6,8 +6,8 @@ class RamenImagesController < ApplicationController
     #投稿データ保存とバリデーション
   def create
     @ramen_image = RamenImage.new(ramen_image_params)
-    @ramen_image.user_id = current_user.id
     @ramen_image.score = Language.get_data(ramen_image_params[:caption])
+    @ramen_image.user_id = current_user.id
     if @ramen_image.save
       redirect_to ramen_images_path
     else

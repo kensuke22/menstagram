@@ -18,7 +18,7 @@ module Language
       uri = URI.parse(api_url)
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
-      request = Net::HTTP::Post.new(uri.request_uri,{ 'Referer' => 'https://3ce63b26b0934f4ea5b3de9c33dd3537.vfs.cloud9.ap-northeast-1.amazonaws.com/' })
+      request = Net::HTTP::Post.new(uri.request_uri,{ 'Referer' => 'http://52.199.238.150/' })
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       # APIレスポンス出力
