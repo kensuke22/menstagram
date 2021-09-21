@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
- 
+  
   devise_for :users
+  
   
   root to: "home#top"
   resources :ramen_images, only: [:new, :create, :index, :show, :destroy] do
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
     resources :ramen_comments, only: [:create, :destroy]
     
   end
+  
   resources :users, only: [:show, :edit, :update, :index]
   
   get 'search/search' => 'search#search'
@@ -15,7 +17,6 @@ Rails.application.routes.draw do
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   
-  post '/home/guest_sign_in', to: 'home#guest_sign_in'
   
   
   
